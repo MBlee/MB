@@ -1,4 +1,6 @@
-const defaultState = [
+const localState = localStorage.getItem('frontEnd')
+
+const defaultState = localState? JSON.parse(localState): [
 	{
 		title: "React",
 		children: [
@@ -26,16 +28,36 @@ const defaultState = [
 	},
 	{
 		title: "Next",
+		children:[]
 	},
 ];
 
-const userReducer = (state=[...defaultState], payload) => {
-	switch (payload.type) {
-		case "changeChecked":
-			return [...state];
-		default:
-			return state;
-	}
+const reducers = {
+	changeChecked: (state, keys) => {
+		const [key1, key2] = keys;
+		const stateCp = [...state]
+		const item = stateCp.filter(val=>{
+			const isTitle = val.title === key1
+			return true
+		})[0].children;
+
+		for (let val of item) {
+			if (val.title === key2) {
+				val.checked = !val.checked;
+				break;
+			}
+		}
+		localStorage.setItem('frontEnd',JSON.stringify(stateCp))
+		return stateCp
+	},
 };
 
-export default userReducer;
+const frontEndReducer = (state = [...defaultState], payload) => {
+	const reducer = reducers[payload.type];
+	if (reducer) {
+		return reducer(state, payload.keys);
+	}
+	return [...state];
+};
+
+export { frontEndReducer };

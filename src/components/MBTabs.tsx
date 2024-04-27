@@ -7,10 +7,14 @@ interface ModelType {
 	children: { title: string; checked: boolean }[];
 }
 interface PropType {
-	onClickHandler?: (title: string) => void;
+	onClickHandler?: (keys: string[]) => void;
 	model?: ModelType[];
 }
 const MBTabs = (props: PropType) => {
+
+	const onClickHandler = (keys)=>{
+		props.onClickHandler!(keys)
+	}
 	return (
 		<div className={Styles.MBTabs}>
 			<div className={Styles.MBTabsBox}>
@@ -37,8 +41,7 @@ const MBTabs = (props: PropType) => {
 												textDecoration: checked ? "line-through" : "none",
 											}}
 											onClick={()=>{
-												m.children[i].checked = !m.children[i].checked
-												console.log(m.children[i].checked);
+												onClickHandler([m.title,title])
 											}}
 										></Cell>
 									))}
