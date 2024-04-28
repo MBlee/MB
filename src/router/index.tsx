@@ -3,18 +3,22 @@ import {useRoutes, Navigate} from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 
 const Home = lazy(()=>import('../pages/home'))
-const Login = lazy(()=>import('../pages/login'))
+const BackEnd = lazy(()=>import('../pages/backEnd'))
+const Deploy = lazy(()=>import('../pages/deploy'))
 
 const routes:RouteObject[] = [
 	{
 		path:'/',
-		element: <Navigate to="/home" />
+		element: <Navigate to="/frontEnd" />
 	},{
-		path:'/home',
+		path:'/frontEnd',
 		element: <Home />
 	},{
-		path:'login',
-		element: <Login />
+		path:'/backEnd',
+		element: <BackEnd />
+	},{
+		path:'/deploy',
+		element: <Deploy />
 	}
 ] 
 

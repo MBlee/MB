@@ -1,10 +1,10 @@
 import {legacy_createStore as createStore,combineReducers,applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
-import {frontEndReducer} from './reducers'
+import {frontEndReducer,backEndReducer} from './reducers'
 
 
 const reducers = combineReducers({
-		frontEndReducer
+		frontEndReducer,backEndReducer
 })
 
 const store = createStore(reducers, applyMiddleware(thunk))

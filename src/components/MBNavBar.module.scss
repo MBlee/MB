@@ -1,0 +1,22 @@
+.MBNavBar{
+
+}
+.MBNavBarBox{
+	:global{
+		.rv-nav-bar__content{
+			background: #bb0000;
+			color: white;
+		}
+		.rv-nav-bar__title{
+			color: #eee;
+		}
+		.rv-nav-bar__right{
+
+			color: #eee;
+		}
+		.rv-nav-bar__right .rv-icon{
+			color: #eee;
+		}
+	}
+}
+

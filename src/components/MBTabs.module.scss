@@ -1,5 +1,9 @@
-.MBTabbar {
+.MBTabs {
 }
-.MBTabbarBox {
-
+.MBTabsBox {
+	:global {
+		.rv-cell {
+			text-align: center;
+		}
+	}
 }

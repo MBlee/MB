@@ -35,7 +35,7 @@ const MBTabs = (props: PropType) => {
 										<Cell
 											key={i}
 											title={title}
-											center={true}
+											center
 											titleStyle={{
 												color: "#333",
 												textDecoration: checked ? "line-through" : "none",
@@ -52,39 +52,6 @@ const MBTabs = (props: PropType) => {
 			</div>
 		</div>
 	);
-};
-
-MBTabs.defaultProps = {
-	model: [
-		{
-			title: "React",
-			children: [
-				{
-					title: "useContext",
-					checked: false,
-				},
-				{
-					title: "useMemo",
-					checked: false,
-				},
-				{
-					title: "useCallback",
-					checked: false,
-				},
-				{
-					title: "useImperativeHandle",
-					checked: false,
-				},
-				{
-					title: "useTransition",
-					checked: false,
-				},
-			],
-		},
-		{
-			title: "Next",
-		},
-	],
 };
 
 export default MBTabs;

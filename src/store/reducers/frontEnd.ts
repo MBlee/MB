@@ -1,54 +1,104 @@
-const localState = localStorage.getItem('frontEnd')
+const localState = localStorage.getItem("frontEnd");
 
-const defaultState = localState? JSON.parse(localState): [
-	{
-		title: "React",
-		children: [
+const defaultState = localState
+	? JSON.parse(localState)
+	: [
 			{
-				title: "useContext",
-				checked: false,
+				title: "React",
+				children: [
+					{
+						title: "useContext",
+						checked: false,
+					},
+					{
+						title: "useMemo",
+						checked: false,
+					},
+					{
+						title: "useCallback",
+						checked: false,
+					},
+					{
+						title: "useImperativeHandle",
+						checked: false,
+					},
+					{
+						title: "useTransition",
+						checked: false,
+					},
+				],
 			},
 			{
-				title: "useMemo",
-				checked: false,
+				title: "Next",
+				children: [
+					{
+						title: "路由",
+						checked: false,
+					},
+					{
+						title: "组件",
+						checked: false,
+					},
+					{
+						title: "第三方组件",
+						checked: false,
+					},
+					{
+						title: "状态管理",
+						checked: false,
+					},
+					{
+						title: "本地缓存",
+						checked: false,
+					},
+				],
 			},
 			{
-				title: "useCallback",
-				checked: false,
+				title: "UniApp",
+				children: [
+					{
+						title: "路由",
+						checked: false,
+					},
+					{
+						title: "组件",
+						checked: false,
+					},
+					{
+						title: "第三方组件",
+						checked: false,
+					},
+					{
+						title: "状态管理",
+						checked: false,
+					},
+					{
+						title: "本地缓存",
+						checked: false,
+					},
+				],
 			},
-			{
-				title: "useImperativeHandle",
-				checked: false,
-			},
-			{
-				title: "useTransition",
-				checked: false,
-			},
-		],
-	},
-	{
-		title: "Next",
-		children:[]
-	},
-];
+		];
 
 const reducers = {
 	changeChecked: (state, keys) => {
 		const [key1, key2] = keys;
-		const stateCp = [...state]
-		const item = stateCp.filter(val=>{
-			const isTitle = val.title === key1
-			return true
-		})[0].children;
+		const stateCp = [...state];
 
-		for (let val of item) {
-			if (val.title === key2) {
-				val.checked = !val.checked;
+		for (let val of stateCp) {
+			if (val.title === key1) {
+				for (let v of val.children) {
+					if (v.title === key2) {
+						v.checked = !v.checked;
+						break;
+					}
+				}
 				break;
 			}
 		}
-		localStorage.setItem('frontEnd',JSON.stringify(stateCp))
-		return stateCp
+
+		localStorage.setItem("frontEnd", JSON.stringify(stateCp));
+		return stateCp;
 	},
 };
 

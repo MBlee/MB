@@ -4,6 +4,7 @@
 			"paths":{
 				"@/*":["src/*"],
 				"@pages/*":["src/pages/*"],
+				"@layouts/*":["src/layouts/*"],
 				"@components/*":["src/components/*"],
 				"@router/*":["src/router/*"],
 				"@store/*":["src/store/*"],
