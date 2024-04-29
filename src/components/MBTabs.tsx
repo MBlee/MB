@@ -44,14 +44,13 @@ const MBTabs = (props: PropType) => {
 					lineHeight="3px"
 					color="#cc0000"
 					border={true}
-					type="jumbo"
+					type="line"
 				>
 					{props.model!.map((m, index) => {
 						return (
 							<Tabs.TabPane
 								key={index}
 								title={`${m.title}`}
-								description={count(m)}
 							>
 								{m.children &&
 									m.children.map((mm, i) => (
@@ -60,7 +59,7 @@ const MBTabs = (props: PropType) => {
 												title={mm.title}
 												center
 												titleStyle={{
-													color: "#333",
+													color: mm.checked?"#ccc":"#333",
 													textDecoration: mm.checked ? "line-through" : "none",
 													fontWeight: 600,
 													fontSize: "16px",
