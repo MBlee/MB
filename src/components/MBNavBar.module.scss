@@ -2,6 +2,15 @@
 
 }
 .MBNavBarBox{
+	.checkedCount{
+		font-size: 19px;
+		font-weight: 600;
+		color: rgba(255,255,255,.9);
+	}
+	.totalCount{
+		font-size: 11px;
+		color: rgba(255,255,255,.6);
+	}
 	:global{
 		.rv-nav-bar__content{
 			background: #bb0000;

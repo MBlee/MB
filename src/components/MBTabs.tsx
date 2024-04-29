@@ -48,10 +48,7 @@ const MBTabs = (props: PropType) => {
 				>
 					{props.model!.map((m, index) => {
 						return (
-							<Tabs.TabPane
-								key={index}
-								title={`${m.title}`}
-							>
+							<Tabs.TabPane key={index} title={`${m.title}`}>
 								{m.children &&
 									m.children.map((mm, i) => (
 										<Fragment key={i}>
@@ -59,7 +56,7 @@ const MBTabs = (props: PropType) => {
 												title={mm.title}
 												center
 												titleStyle={{
-													color: mm.checked?"#ccc":"#333",
+													color: mm.checked ? "#ccc" : "#333",
 													textDecoration: mm.checked ? "line-through" : "none",
 													fontWeight: 600,
 													fontSize: "16px",

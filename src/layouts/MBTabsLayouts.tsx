@@ -9,7 +9,7 @@ interface PropsType {
 	onNavBarsRightHandler?: () => void;
 }
 const MBTabsLayouts = (props) => {
-	const [counts, setCounts] = useState("");
+	const [counts, setCounts] = useState<number[]>([]);
 	useEffect(() => {
 
 		const totalCount = props.model.reduce((pre, cur) => {
@@ -26,9 +26,8 @@ const MBTabsLayouts = (props) => {
 			return pre+i;
 		}, 0);
 
-		const arr = [checkedCount,totalCount]
-
-		setCounts(arr.join("/"));
+		const arr=  [checkedCount,totalCount]
+		setCounts(arr);
 	}, [props.model]);
 
 	const onNavBarsLeftHandler = () => {};

@@ -3,7 +3,7 @@ import Styles from "./MBNavBar.module.scss";
 import { NavBar } from "react-vant";
 import {Clear} from '@react-vant/icons'
 interface PropsType{
-	title: string
+	title: number[]
 	onClickLeft?:()=>void
 	onClickRight?:()=>void
 	onClickCenter?:()=>void
@@ -15,7 +15,7 @@ const MBNavBar = (props:PropsType) => {
 			<div className={Styles.MBNavBarBox}>
 				<NavBar
 					fixed placeholder
-					title={props.title}
+					title={<><span className={Styles.checkedCount}>{props.title[0]}</span><span className={Styles.totalCount}>/{props.title[1]}</span></>}
 					leftText=""
 					leftArrow=''
 					// @ts-ignore
