@@ -1,5 +1,16 @@
 .MBTabbar {
 }
 .MBTabbarBox {
-	
+	:global {
+		.rv-tabbar {
+			background: #f8f8f8;
+			.rv-tabbar-item {
+				color: #222;
+				font-weight: 500;
+				&.rv-tabbar-item--active {
+					background: #f8f8f8;
+				}
+			}
+		}
+	}
 }

@@ -1,96 +1,92 @@
-const localState = localStorage.getItem("backEnd");
+const localState = localStorage.getItem("deploy");
 
 const defaultState = localState
 	? JSON.parse(localState)
 	: [
 			{
-				title: "Express",
+				title: "网站",
 				children: [
 					{
-						title: "Cookie",
+						title: "静态部署",
 						checked: false,
 					},
 					{
-						title: "Session",
+						title: "缓存",
 						checked: false,
 					},
 					{
-						title: "JWT",
+						title: "压缩",
 						checked: false,
-					},
-					{
-						title: "Multer",
+					},{
+						title: "防高频",
 						checked: false,
 						type:'divider'
 					},
 					{
-						title: "测试",
+						title: "动态部署",
 						checked: false,
 					},
 					{
-						title: "日志排查",
+						title: "HTTP并发",
 						checked: false,
 					},
 					{
-						title: "宕机",
+						title: "Node缓存",
+						checked: false,
+					},
+					{
+						title: "页面压缩",
+						checked: false,
+					},
+					{
+						title: "防请求高频",
 						checked: false,
 						type:'divider'
-					},
-					{
-						title: "Linux安装",
-						checked: false,
-					},
-					{
-						title: "Linux部署",
-						checked: false,
-					},
-					{
-						title: "多服务",
-						checked: false,
 					}
 				],
 			},
 			{
-				title: "Mysql",
+				title: "Linux",
 				children: [
 					{
-						title: "增删改查",
+						title: "Nginx",
 						checked: false,
 					},
 					{
-						title: "账户权限",
+						title: "Tomcat",
+						checked: false,
+					},
+					{
+						title: "Apache",
 						checked: false,
 						type:'divider'
 					},
 					{
-						title: "测试",
+						title: "CDN",
 						checked: false,
 					},
 					{
-						title: "数据备份",
+						title: "私服",
 						checked: false,
 					},
 					{
-						title: "数据迁移",
+						title: "第三方包",
 						checked: false,
 						type:'divider'
-					},
-					{
-						title: "Linux安装",
+					},{
+						title: "Docker",
 						checked: false,
 					},{
-						title: "Linux部署",
+						title: "CICD",
 						checked: false,
-					},{
-						title: "多端部署",
-						checked: false,
+						type:'divider'
 					},
 				],
 			},
 		];
 
 const reducers = {
-	changeChecked: (state, keys) => {
+	changeDeployChecked: (state, keys) => {
 		const [key1, key2] = keys;
 		const stateCp = [...state];
 
@@ -106,12 +102,12 @@ const reducers = {
 			}
 		}
 
-		localStorage.setItem("backEnd", JSON.stringify(stateCp));
+		localStorage.setItem("deploy", JSON.stringify(stateCp));
 		return stateCp;
 	},
 };
 
-const backEndReducer = (state = [...defaultState], payload) => {
+const deployReducer = (state = [...defaultState], payload) => {
 	const reducer = reducers[payload.type];
 	if (reducer) {
 		return reducer(state, payload.keys);
@@ -119,4 +115,4 @@ const backEndReducer = (state = [...defaultState], payload) => {
 	return [...state];
 };
 
-export { backEndReducer };
+export { deployReducer };

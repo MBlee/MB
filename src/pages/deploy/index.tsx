@@ -3,16 +3,16 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Styles from "./index.module.scss";
 import MBTabsLayouts from "@layouts/MBTabsLayouts";
-import { toChangeCheckedBackEnd } from "@store/actions";
+import { toChangeCheckedDeploy } from "@store/actions";
 
 const Index = () => {
 	const dispatch = useDispatch();
-	const tabsModel = useSelector((state) => state["backEndReducer"]);
+	const tabsModel = useSelector((state) => state["deployReducer"]);
 	const onTabsClickHandler = (keys) => {
-		dispatch(toChangeCheckedBackEnd(keys));
+		dispatch(toChangeCheckedDeploy(keys));
 	};
 	const onNavBarsRightHandler = () => {
-		localStorage.removeItem("backEnd");
+		localStorage.removeItem("deploy");
 		window.location.reload();
 	};
 	return (

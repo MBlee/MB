@@ -25,7 +25,37 @@ const defaultState = localState
 					{
 						title: "useTransition",
 						checked: false,
+						type: "divider",
 					},
+					{
+						title: "route5",
+						checked: false,
+					},
+					{
+						title: "route6",
+						checked: false,
+						type: "divider",
+					},
+					{
+						title: "redux",
+						checked: false,
+					},
+					{
+						title: "@redux/toolkit",
+						checked: false,
+					},{
+						title: "localStorage",
+						checked: false,
+						type:'divider'
+					},
+					{
+						title: "@craco/craco",
+						checked: false,
+					},
+					{
+						title: "测试",
+						checked: false,
+					}
 				],
 			},
 			{
